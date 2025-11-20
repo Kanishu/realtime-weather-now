@@ -50,7 +50,7 @@ export const fetchWeatherData = async (city: string, unit: "C" | "F"): Promise<W
       windSpeed: Math.round(data.wind.speed * 3.6), // Convert m/s to km/h
       icon: data.weather[0].icon,
     };
-  } catch (error) {
+  } catch (_error) {
     throw new Error("Failed to fetch weather data");
   }
 };
@@ -95,7 +95,7 @@ export const fetchForecastData = async (city: string, unit: "C" | "F"): Promise<
         low: Math.min(...temps),
         condition: conditions[0],
       }));
-  } catch (error) {
+  } catch (_error) {
     throw new Error("Failed to fetch forecast data");
   }
 };
